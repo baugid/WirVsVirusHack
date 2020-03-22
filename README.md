@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/baugid/WirVsVirusHack/badge.svg?branch=master)](https://coveralls.io/github/baugid/WirVsVirusHack?branch=master)
+[![Build Status](https://travis-ci.com/baugid/WirVsVirusHack.svg?branch=master)](https://travis-ci.com/baugid/WirVsVirusHack)[![Coverage Status](https://coveralls.io/repos/github/baugid/WirVsVirusHack/badge.svg?branch=master)](https://coveralls.io/github/baugid/WirVsVirusHack?branch=master)
 # e-BorderControl:in 
 Bei Hackathon WirVsVirus entstandenes Repo bzgl. Speicherung und Bearbeitung von Formularen zur Einreise
 
