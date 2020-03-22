@@ -2,3 +2,5 @@
 node_modules/**/
 userfiles/*
 data.db
+.nyc_output/**/
+coverage/**/
