@@ -2,6 +2,8 @@ language: node_js
 node_js: 
   - "stable"
 install:
-    - npm ci
+  - npm ci
 after-script:
-    - npm run coverage
+  - npm run coverage
+notifications:
+  email: false
