@@ -15,10 +15,11 @@ function generateFilename(extension) {
 }
 
 module.exports = class Server {
-    constructor(app) {
+    constructor() {
         //setup database
         this.database = new Datastore("data.db")
         this.database.loadDatabase()
+        
         //ensure userfiles directory exists
         if (!fs.existsSync('userfiles'))
             fs.mkdirSync('userfiles');
