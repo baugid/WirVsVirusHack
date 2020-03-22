@@ -53,7 +53,7 @@ class QR {
     }
 
 }
-
+//Author Gideon Baur
 function sendRequest(url, options, jsonCallback) {
     fetch(url, options).then(response => {
         const contentType = response.headers.get("content-type")
@@ -67,35 +67,39 @@ function sendRequest(url, options, jsonCallback) {
     })
 }
 
+function handleQRCode(code) {
+    const data = {
+        id: code.data
+    }
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+
+    sendRequest('/readForm', options, data => {
+        data.content.forEach((item, i) => {
+            jQuery('#' + (i + 1)).val(item);
+        })
+
+        const fileoutput = $('#filelist')[0]
+        fileoutput.innerHTML = ""
+        data.files.forEach((item, i) => {
+            fileoutput.innerHTML += '<a class="btn" target="_blank" href="getFile/' + item.fileID + '">Datei ' + (i + 1) + '</a>'
+        })
+    })
+}
+
+/////////////////////////////////////////////////////
+
 // Use facingMode: environment to attemt to get the front camera on phones
 navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (stream) {
     video.srcObject = stream;
     video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
     video.play();
     var q = new QR(video);
-    q.onNewData(function (code) {
-        const data = {
-            id: code.data
-        }
-
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }
-
-        sendRequest('/readForm', options, data => {
-            data.content.forEach((item, i) => {
-                jQuery('#' + (i + 1)).val(item);
-            })
-
-            const fileoutput = $('#filelist')[0]
-            fileoutput.innerHTML = ""
-            data.files.forEach((item, i) => {
-                fileoutput.innerHTML += '<a class="btn" target="_blank" href="getFile/' + item.fileID + '">Datei ' + (i + 1) + '</a>'
-            })
-        })
-    })
+    q.onNewData(handleQRCode)
 })

@@ -7,8 +7,8 @@
     "url": "https://github.com/baugid/wirvsvirus"
   },
   "main": "app.js",
-  "author": "",
-  "license": "ISC",
+  "author": "Gideon Baur",
+  "license": "MIT",
   "scripts": {
     "postinstall": "mkdir userfiles &",
     "start": "node app.js",

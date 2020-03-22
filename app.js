@@ -1,3 +1,4 @@
+//author: Gideon Baur
 const express = require('express')
 const fileUpload = require('express-fileupload')
 const Datastore = require('nedb')
