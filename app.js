@@ -33,11 +33,11 @@ app.use("/getFile", express.static("userfiles"))
 app.use(fileUpload())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.listen(PORT)
+exports.server = app.listen(PORT) //enables testing code to close the server
 
 //read form information
 app.post('/readForm', (request, response) => {
-    if (!request.body.id)
+    if (!request.is('json') || !request.body.id)
         return response.status(400).send("Invalid request.")
 
     database.findOne({ _id: request.body.id }, (err, data) => {
@@ -71,13 +71,16 @@ app.post('/submitFile', (request, response) => {
             return response.status(500).send("Can't store file.")
         }
     }
-    return response.status(400).send('Illegal file type.')
+    return response.status(400).send('Illegal filetype.')
 })
 
 //stores the form in the database
 app.post('/submitForm', (request, response) => {
     if (!request.is('json'))
         return response.status(400).send("json expected.")
+
+    if (request.body._id)
+        return response.status(400).send("Illegal identifier _id")
 
     database.insert(request.body, (err, data) => {
         if (err) {

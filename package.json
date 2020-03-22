@@ -11,12 +11,19 @@
   "license": "MIT",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc mocha"
   },
   "dependencies": {
     "express": "^4.17.1",
     "nedb": "^1.8.0",
     "express-fileupload": "^1.1.6",
     "unique-slug": "^2.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.0",
+    "request": "^2.88.2",
+    "rimraf": "^3.0.2"
   }
 }
