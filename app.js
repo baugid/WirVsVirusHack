@@ -4,7 +4,7 @@ const fileUpload = require('express-fileupload')
 const Server = require('./src/Server')
 
 //constants
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 //setup server
 const handler = new Server()
