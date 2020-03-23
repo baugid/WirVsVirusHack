@@ -5,7 +5,7 @@ Bei Hackathon WirVsVirus entstandenes Repo bzgl. Speicherung und Bearbeitung von
 
 e-BorderControl:in  ist ein Proof of Concept für schnellere Abwicklung von Grenzkontrollen welche durch das Corona Virus entstehen.
 
-Proof of Concept ist [HIER](https://hack.niklas.codes/qrcode_gen_tw.html) erreichbar.
+Proof of Concept ist [HIER](https://wirvsvirus-hack.herokuapp.com/) erreichbar.
 
 Devpost Link: [HIER](https://devpost.com/software/01_036_grenzkontrollen_e-bordercontrol-in)
 
