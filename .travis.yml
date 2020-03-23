@@ -1,9 +1,16 @@
 language: node_js
-node_js: 
-  - "stable"
+node_js:
+- stable
 install:
-  - npm ci
+- npm ci
 after-script:
-  - npm run coverage
+- npm run coverage
 notifications:
   email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: WgqiOsPOjakcxZnJCFm1pYHAgwPtJapcLldEH4jC/LFSv9CEJ8lj0p0uSYgoSfXInJF1hZto16XgTEJfz8Jylc5vxOv/lqiWo0vP2EnQTfTGq1zujfV/HEhgdkOcVtkQWxSdH+HPffmnoF/JetdEK/agocIK27oH6T/MzKxaHayuL3nkKZ2+BajBOUqed2wHpeqh4ey0b1Jes6j+9q902UW/yD9/BOStpx1Y6uC/oG/s5EG7F9NS6huvmvydlFlH+z/mjrsyQwGJHU5gkMDTkAptP0bmhYfiZIHfHfHclo2Ntd11sNj//55jRG5MoYU20zP+ZamqJkWgNBHxpf+kfmjGDK74QdM/ZtecH0me4Y8hiaZ4TunD8K9mb2zlPGjPA6JncmezFEF0ReUzUzi7OPXjMzzXlpROAPK86U42a+gihZvlc58lsWjonaxGC3veF38wXBa7i4SIMPUtSnhuj6Lo3rRDMwgkCwfbNfKW5FAGWX1uHC/7BGgx50b2zD6jLYoKsQKxkkI/rmXyhtAUALhDctaQ/+/kGrCAmGocngGdRIUwyOm05t3k2lUO6A27uK+q1Ow5PuVGMd8quuLWqsxNDit0ugnm8vblObBo5XQxrDQfoZBp68xURhQKKsPnCZeNTRdjNIusvXVPfZR/hP+pcCxZBNA+3QW75/soNFc=
+  app: wirvsvirus-hack
+  on:
+    repo: baugid/WirVsVirusHack
